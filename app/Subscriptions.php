@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Suscribir extends Model
+class Subscriptions extends Model
 {
     protected $fillable = [
         'curso','nombre','tipo','identificacion','pago'

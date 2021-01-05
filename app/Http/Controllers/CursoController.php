@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Curso;
-use App\Suscribir;
+use App\Subscriptions;
 
 class CursoController extends Controller
 {
@@ -174,11 +174,12 @@ class CursoController extends Controller
             'identificacion' => 'required',
         ]);
     
-        $suscribir =new Suscribir;
+        $suscribir =new Subscriptions;
         $suscribir->curso           = $request->curso;
         $suscribir->nombre          = $request->nombre;
         $suscribir->tipo            = $request->tipo;
         $suscribir->identificacion  = $request->identificacion;
+        $suscribir->pago  = 0;
 
         $suscribir->save();
      
