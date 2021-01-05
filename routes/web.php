@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/listadocursos", "CursoController@listadocursos")->name('listadocursos');
 
 Route::group(['middleware' => 'auth'], function () {  
     Route::resource('cursos', CursoController::class);

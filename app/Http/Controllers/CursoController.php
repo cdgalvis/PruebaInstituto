@@ -144,4 +144,12 @@ class CursoController extends Controller
         return redirect()->route('cursos.index')
                         ->with('success','Curso eliminado correctamente');
     }
+
+    public function listadocursos()
+    {
+        $cursos = Curso::latest()->paginate(5);
+    
+        return view('listadocursos',compact('cursos'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }
