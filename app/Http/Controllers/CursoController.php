@@ -85,37 +85,63 @@ class CursoController extends Controller
         //
     }
 
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Curso  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Curso $curso)
     {
-        //
+        return view('cursos.edit',compact('curso'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Curso $curso)
     {
-        //
+        $request->validate([
+            'nombre'        => 'required',
+            'duracion'      => 'required',
+            'fechainicio'   => 'required',
+            'fechafin'      => 'required',
+            'sede'          => 'required',
+            'jornada'       => 'required',
+            'descripcion'    => 'required',
+            'imagen'        => 'required',
+        ]);
+
+        if ($request->hasFile('imagen')){
+            $file           = $request->file("imagen");
+            $nombrearchivo  = $file->getClientOriginalName();
+            $file->move(public_path("storage/"),$nombrearchivo);
+        }
+    
+        $curso->update($request->all());
+
+        $curso->where('id',$curso->id)
+                ->update(['imagen'=> $nombrearchivo]);
+    
+        return redirect()->route('cursos.index')
+                        ->with('success','Curso actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Curso $curso)
     {
-        //
+        $curso->delete();
+    
+        return redirect()->route('cursos.index')
+                        ->with('success','Curso eliminado correctamente');
     }
 }
