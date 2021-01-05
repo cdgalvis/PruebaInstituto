@@ -27,7 +27,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cursos.create');
     }
 
     /**
@@ -38,7 +38,40 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre'        => 'required',
+            'duracion'      => 'required',
+            'fechainicio'   => 'required',
+            'fechafin'      => 'required',
+            'sede'          => 'required',
+            'jornada'       => 'required',
+            'descripcion'    => 'required',
+            'imagen'        => 'required',
+        ]);
+    
+        //Curso::create($request->all());
+
+        $curso =new Curso;
+        $curso->nombre        = $request->nombre;
+        $curso->duracion      = $request->duracion;
+        $curso->fechainicio   = $request->fechainicio;
+        $curso->fechafin      = $request->fechafin;
+        $curso->sede          = $request->sede;
+        $curso->jornada       = $request->jornada;
+        $curso->descripcion   = $request->descripcion;
+
+        if ($request->hasFile('imagen')){
+            $file           = $request->file("imagen");
+            $nombrearchivo  = $file->getClientOriginalName();
+            $file->move(public_path("storage/"),$nombrearchivo);
+            $curso->imagen        = $nombrearchivo;
+        }
+
+        $curso->save();
+
+     
+        return redirect()->route('cursos.index')
+                        ->with('success','Curso credo correctamente.');
     }
 
     /**
