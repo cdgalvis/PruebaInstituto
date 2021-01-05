@@ -27,6 +27,7 @@
                                 <th>Jornada</th>
                                 <th>Descripcion</th>
                                 <th>Imagen</th>
+                                <th>Accion</th>
                             </tr>
                             @foreach ($cursos as $curso)
                             <tr>
@@ -40,6 +41,9 @@
                                 <td>{{ $curso->descripcion }}</td>
                                 <td>
                                     <img class="img-rounded" width="70" height="90" src="storage/{{ $curso->imagen }}" alt="image">
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ route('subscribir',$curso->id) }}"> Subscribir </a>  
                                 </td>
                             </tr>
                             @endforeach

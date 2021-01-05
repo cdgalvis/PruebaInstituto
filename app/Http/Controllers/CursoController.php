@@ -152,4 +152,22 @@ class CursoController extends Controller
         return view('listadocursos',compact('cursos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function subscribir(Curso $curso)
+    {
+        return view('subscribir',compact('curso'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function guardar(Request $request)
+    {
+
+    }
+
+    
 }

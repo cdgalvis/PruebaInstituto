@@ -18,9 +18,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+  
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get("/listadocursos", "CursoController@listadocursos")->name('listadocursos');
+Route::get("/listadocursos/{curso}/subscribir", "CursoController@subscribir")->name('subscribir');
+Route::post('/listadocursos/subscribir', 'CursoController@guardar');
 
 Route::group(['middleware' => 'auth'], function () {  
     Route::resource('cursos', CursoController::class);
