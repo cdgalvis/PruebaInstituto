@@ -1,0 +1,12 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Curso extends Model
+{
+    protected $fillable = [
+        'nombre','duracion','fechainicio','fechafin','sede','jornada','descripcion','imagen'
+    ];
+}
