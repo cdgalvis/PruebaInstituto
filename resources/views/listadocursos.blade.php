@@ -43,7 +43,7 @@
                                     <img class="img-rounded" width="70" height="90" src="storage/{{ $curso->imagen }}" alt="image">
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('subscribir',$curso->id) }}"> Subscribir </a>  
+                                    <a class="btn btn-primary" href="{{ route('suscribir',$curso->id) }}"> Suscribir </a>  
                                 </td>
                             </tr>
                             @endforeach

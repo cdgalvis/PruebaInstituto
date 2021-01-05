@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Curso;
+use App\Suscribir;
 
 class CursoController extends Controller
 {
@@ -153,9 +154,9 @@ class CursoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function subscribir(Curso $curso)
+    public function suscribir(Curso $curso)
     {
-        return view('subscribir',compact('curso'));
+        return view('suscribir',compact('curso'));
     }
 
     /**
@@ -166,7 +167,23 @@ class CursoController extends Controller
      */
     public function guardar(Request $request)
     {
+        $request->validate([
+            'curso'          => 'required',
+            'nombre'         => 'required',
+            'tipo'           => 'required',
+            'identificacion' => 'required',
+        ]);
+    
+        $suscribir =new Suscribir;
+        $suscribir->curso           = $request->curso;
+        $suscribir->nombre          = $request->nombre;
+        $suscribir->tipo            = $request->tipo;
+        $suscribir->identificacion  = $request->identificacion;
 
+        $suscribir->save();
+     
+        return redirect()->route('listadocursos')
+                        ->with('success','Se registro correctamente en el curso');
     }
 
     

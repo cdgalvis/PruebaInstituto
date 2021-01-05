@@ -18,7 +18,7 @@
                             </div>
                         @endif
                         
-                        <form enctype="multipart/form-data" action="{{ route('cursos.store') }}" method="POST">
+                        <form enctype="multipart/form-data" action="{{ route('guardar') }}" method="POST">
                             @csrf
                         
                             <div class="row">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary">Subscribir</button>
+                                        <button type="submit" class="btn btn-primary">Suscribir</button>
                                         <a class="btn btn-primary" href="{{ route('listadocursos') }}"> Regresar</a>
                                 </div>
                             </div>
