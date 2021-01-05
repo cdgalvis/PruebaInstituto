@@ -90,7 +90,7 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ url('/home') }}" class="btn btn-primary" >Cursos</a>
+                        <a href="{{ route('cursos.index') }}" class="btn btn-primary" >Cursos</a>
 
                         <a href="{{ route('login') }}" class="btn btn-primary" >Login</a>
 
