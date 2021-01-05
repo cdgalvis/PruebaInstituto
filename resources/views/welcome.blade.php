@@ -72,12 +72,12 @@
                 margin-bottom: 30px;
             }
 
-            /*body {
+            body {
                 margin: 0; 
                 background-image: url("../storage/fondo.jpg");
                 background-size: cover;
                 
-            }*/
+            }
 
             
 
