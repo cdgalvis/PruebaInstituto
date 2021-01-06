@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Curso;
 use App\Subscriptions;
+use App\Mail\CorreoEnviado;
 
 class CursoController extends Controller
 {
@@ -176,6 +178,10 @@ class CursoController extends Controller
             'optradio'       => 'required',
             'pago'           => 'required',
         ]);
+
+        $correo = $request->email;
+        $cursoinscrito = $request->curso;
+        $informacion = Curso::where("nombre","=",$request->curso)->get()->toArray();
     
         $suscribir =new Subscriptions;
         $suscribir->curso           = $request->curso;
@@ -187,6 +193,10 @@ class CursoController extends Controller
         $suscribir->pago            = $request->pago;
 
         $suscribir->save();
+
+        
+        Mail::to($correo)->send(new CorreoEnviado($cursoinscrito,$informacion));
+
      
         return redirect()->route('listadocursos')
                         ->with('success','Se registro correctamente en el curso');
