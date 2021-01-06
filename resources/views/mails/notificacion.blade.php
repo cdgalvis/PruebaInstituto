@@ -8,7 +8,7 @@
     <body>    
         <header>
             <h1>Informe de Suscripción</h1>      
-        </header>    
+        </header>     
 
         <section>      
             <article>
