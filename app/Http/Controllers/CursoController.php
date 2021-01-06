@@ -172,6 +172,8 @@ class CursoController extends Controller
             'nombre'         => 'required',
             'tipo'           => 'required',
             'identificacion' => 'required',
+            'optradio'       => 'required',
+            'pago'           => 'required',
         ]);
     
         $suscribir =new Subscriptions;
@@ -179,7 +181,8 @@ class CursoController extends Controller
         $suscribir->nombre          = $request->nombre;
         $suscribir->tipo            = $request->tipo;
         $suscribir->identificacion  = $request->identificacion;
-        $suscribir->pago  = 0;
+        $suscribir->optradio        = $request->optradio;
+        $suscribir->pago            = $request->pago;
 
         $suscribir->save();
      

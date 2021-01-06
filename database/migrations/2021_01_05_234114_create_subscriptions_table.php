@@ -19,7 +19,8 @@ class CreateSubscriptionsTable extends Migration
             $table->string('nombre')->required();
             $table->string('tipo')->required();
             $table->string('identificacion')->required();
-            $table->string('pago');
+            $table->string('optradio')->required();
+            $table->double('pago', 10, 2)->required();
             $table->timestamps();
         });
     }

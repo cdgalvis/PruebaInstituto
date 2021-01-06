@@ -52,6 +52,24 @@
                                         <input type="text" name="identificacion" class="form-control" placeholder="Identificacion">
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <strong>Seleccione metodo de pago:</strong>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" value="TC"> Tarjeta de Credito</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" value="TD"> Tarjeta Debito</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" value="PSE"> PSE</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Valor a Pagar:</strong>
+                                        <input type="text" name="pago" value="400000" class="form-control" readonly>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Suscribir</button>
                                         <a class="btn btn-primary" href="{{ route('listadocursos') }}"> Regresar</a>
