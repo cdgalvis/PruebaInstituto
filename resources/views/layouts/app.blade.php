@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -85,6 +86,19 @@
         </main>
     </div>
 
+    <script>
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                _this = this;
+                $.each($("#mytable tbody tr"), function() {
+                    if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
+        </script>
     
 </body>
 </html>

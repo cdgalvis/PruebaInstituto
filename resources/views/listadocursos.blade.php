@@ -15,8 +15,12 @@
                             </div>
                         @endif
 
+                        <div class="form-group">
+                            <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Escriba para buscar...">
+                        </div>
+
                         <div style="overflow-x:auto;">
-                        <table class="table">
+                        <table id="mytable" class="table">
                             <tr>
                                 <th>No</th>
                                 <th>Nombre</th>
@@ -56,3 +60,5 @@
         </div>  
     </div>      
 @endsection
+
+
