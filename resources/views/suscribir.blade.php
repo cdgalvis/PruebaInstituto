@@ -36,6 +36,12 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        <strong>Email:</strong>
+                                        <input type="text" name="email" class="form-control" placeholder="example@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
                                         <strong>Tipo de Identificacion:</strong>
                                         <select name="tipo" class="form-control">
                                             <option></option>

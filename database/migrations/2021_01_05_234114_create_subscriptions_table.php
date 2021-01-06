@@ -17,6 +17,7 @@ class CreateSubscriptionsTable extends Migration
             $table->id();
             $table->string('curso')->required();
             $table->string('nombre')->required();
+            $table->string('email')->required();
             $table->string('tipo')->required();
             $table->string('identificacion')->required();
             $table->string('optradio')->required();

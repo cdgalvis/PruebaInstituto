@@ -170,6 +170,7 @@ class CursoController extends Controller
         $request->validate([
             'curso'          => 'required',
             'nombre'         => 'required',
+            'email'          => 'required',
             'tipo'           => 'required',
             'identificacion' => 'required',
             'optradio'       => 'required',
@@ -179,6 +180,7 @@ class CursoController extends Controller
         $suscribir =new Subscriptions;
         $suscribir->curso           = $request->curso;
         $suscribir->nombre          = $request->nombre;
+        $suscribir->email           = $request->email;
         $suscribir->tipo            = $request->tipo;
         $suscribir->identificacion  = $request->identificacion;
         $suscribir->optradio        = $request->optradio;
