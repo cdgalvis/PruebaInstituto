@@ -19,6 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -45,6 +48,9 @@
 
                         <!-- Authentication Links -->
                         @guest
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('listadocursos') }}" >Cursos</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>

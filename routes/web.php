@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
   
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'CursoController@index')->name('home');
 Route::get("/listadocursos", "CursoController@listadocursos")->name('listadocursos');
 Route::get("/listadocursos/{curso}/suscribir", "CursoController@suscribir")->name('suscribir');
 Route::post('/listadocursos/suscribir', 'CursoController@guardar')->name('guardar');
